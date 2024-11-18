@@ -1,0 +1,47 @@
+{
+  "name": "vscode-auto-theme",
+  "displayName": "Auto Theme Switcher",
+  "description": "Automatically switch VS Code themes based on time of day",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.54.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Auto Theme Switcher",
+      "properties": {
+        "autoTheme.lightTheme": {
+          "type": "string",
+          "default": "Default Light+",
+          "description": "Theme to use during day time"
+        },
+        "autoTheme.darkTheme": {
+          "type": "string",
+          "default": "Default Dark+",
+          "description": "Theme to use during night time"
+        },
+        "autoTheme.dayStartTime": {
+          "type": "string",
+          "default": "08:00",
+          "description": "Time when day begins (24h format)"
+        },
+        "autoTheme.dayEndTime": {
+          "type": "string",
+          "default": "18:00",
+          "description": "Time when day ends (24h format)"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./"
+  }
+}
